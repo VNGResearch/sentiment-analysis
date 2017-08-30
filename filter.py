@@ -3,10 +3,10 @@ from sentiment.utils import load_data
 
 
 def main(args):
-    docs, labels = load_data('data/text_emotion/texts.tsv')
+    docs, labels = load_data('data/amazon/train.tsv')
     mfilter = UnivariateFilter(docs, labels, stopwords='english',
                                vocab_size=20000, no_below=10, no_above=0.95)
-    mfilter.fit()
+    mfilter.fit(k=100)
     mfilter.save_filter()
 
 
